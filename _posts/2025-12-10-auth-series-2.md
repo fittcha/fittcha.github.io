@@ -1,3 +1,4 @@
+---
 title: "OAuth 2.0부터 HMAC까지 실무 인증 패턴 정리"
 date: 2025-12-10 12:00:00 +0900
 categories: [Development, Auth]
