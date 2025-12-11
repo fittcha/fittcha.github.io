@@ -1,3 +1,4 @@
+---
 title: "[try] 인증 실제로 적용해보기"
 date: 2025-12-11 12:00:00 +0900
 categories: [Development, Auth]
