@@ -5,8 +5,6 @@ categories: [Database]
 tags: [DB, Index, B+Tree, SQL, MSSQL, 성능튜닝]
 ---
 
-# DB 인덱스, 제대로 알고 쓰자 - 기본편
-
 ## 들어가며
 
 "인덱스 걸었는데 왜 안 빨라지죠?"
