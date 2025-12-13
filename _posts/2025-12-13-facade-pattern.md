@@ -5,8 +5,6 @@ categories: [Development, Design Pattern]
 tags: [디자인패턴, Facade, Java, Spring, 이커머스]
 ---
 
-# Facade 패턴, 복잡한 시스템을 단순하게 다루는 법
-
 ## 들어가며
 
 이커머스 시스템에서 "주문하기" 버튼 하나 누르면 뒤에서 무슨 일이 벌어질까요?
