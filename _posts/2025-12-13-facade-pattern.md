@@ -1,6 +1,6 @@
 ---
 title: "Facade 패턴, 복잡한 시스템을 단순하게 다루는 법"
-date: 2025-12-14
+date: 2025-12-13
 categories: [Development, Design Pattern]
 tags: [디자인패턴, Facade, Java, Spring, 이커머스]
 ---
