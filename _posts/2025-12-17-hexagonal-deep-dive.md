@@ -7,7 +7,7 @@ tags: [architecture, hexagonal, ports-and-adapters, clean-code]
 
 지난 글에서 여러 아키텍처를 비교하고 Hexagonal을 선택했다고 했는데, 이번에는 Hexagonal Architecture를 제대로 파헤쳐보기로 했다.
 
-처음 접하면 "Port? Adapter? 뭔 소리야?" 싶다. 나도 그랬다.
+처음 "Port? Adapter?" 포트는 뭐고 어댑터는 또 뭐야.. 싶다. 여기서부터 그냥 그 동안 해오던 아키텍처랑 다를 것 같은 느낌이랄까.
 
 ---
 
@@ -110,7 +110,7 @@ public class CouponPersistenceAdapter implements CouponRepository {
 
 **각 연결 담당자(Adapter)**가 규격에 맞게 변환해준다. 배달앱 연동 담당자, CJ 납품 담당자처럼.
 
-이 구조의 장점은? 배달앱을 쿠팡이츠에서 배민으로 바꿔도 본사 레시피는 안 건드려도 된다. 연결 담당자(Adapter)만 바꾸면 되는 것!
+이 구조의 장점은? 배달앱을 쿠팡이츠에서 배민으로 바꿔도 본사 레시피는 안 건드려도 된다. 연결 담당자(Adapter)만 바꾸면 된다.
 
 ---
 
@@ -185,7 +185,7 @@ public class CreateCouponService implements CreateCouponUseCase {
 
 Service는 `CouponRepository`라는 인터페이스(Port)만 안다. 그게 JPA로 구현됐는지, MongoDB로 구현됐는지 모른다.
 
-JPA를 MongoDB로 바꾸고 싶으면? `CouponMongoAdapter`만 새로 만들면 된다. Service는 그대로!
+JPA를 MongoDB로 바꾸고 싶으면? `CouponMongoAdapter`만 새로 만들면 된다. Service는 그대로.
 
 ---
 
@@ -197,7 +197,7 @@ Hexagonal의 마법은 **의존성 역전**에서 나온다고 볼 수 있다.
 
 **Hexagonal에서는** Service와 JPA Adapter 둘 다 추상화(Port)에 의존한다. Service → Port ← JPA Adapter 이런 모양이다.
 
-이렇게 되면 JPA Adapter를 갈아끼워도 Service는 영향이 없다. 둘 다 Port만 바라보고 있으니까!
+이렇게 되면 JPA Adapter를 갈아끼워도 Service는 영향이 없다. 둘 다 Port만 바라보고 있으니까.
 
 ---
 
@@ -321,7 +321,7 @@ coupon/
         └── CouponMapper.java
 ```
 
-폴더 구조만 봐도 역할이 명확하게 보인다!
+폴더 구조만 봐도 역할이 명확하게 보인다.
 
 ---
 
@@ -338,7 +338,7 @@ coupon/
 7. 저장된 Entity를 다시 Domain으로 변환해서 반환
 8. **Response** 반환
 
-복잡해 보이지만, 각 단계가 하는 일이 명확하다. 그래서 문제가 생겨도 어디서 생겼는지 바로 찾을 수 있다!
+복잡해 보이지만, 각 단계가 하는 일이 명확하다. 그래서 문제가 생겨도 어디서 생겼는지 바로 찾을 수 있다.
 
 ---
 
@@ -360,7 +360,7 @@ Hexagonal Architecture의 핵심은 **도메인을 보호하는 것**이다.
 
 도메인은 순수한 비즈니스 로직만 담고, 외부 기술(DB, API, 프레임워크)과는 Port/Adapter로 연결하면 된다. 이렇게 하면 외부 기술이 바뀌어도 도메인은 안전하고, 테스트도 쉬워진다.
 
-처음엔 파일이 많아져서 복잡해 보일 수 있다. 근데 익숙해지면 "어디에 뭘 넣어야 하지?"라는 고민이 확 줄어든다. 구조가 명확하니까!
+처음엔 파일이 많아져서 복잡해 보일 수 있다. 근데 익숙해지면 "어디에 뭘 넣어야 하지?"라는 고민이 확 줄어든다. 구조가 명확하니까.
 
 다음 글에서는 모듈러 모놀리스에 대해 알아보자. Hexagonal과 조합하면 MSA 전환도 쉬운 깔끔한 구조를 만들 수 있다.
 
